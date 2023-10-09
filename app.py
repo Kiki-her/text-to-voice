@@ -11,7 +11,11 @@ def synthesize_speech(text, lang='日本語', gender='defalut'):
         'defalut': texttospeech.SsmlVoiceGender.SSML_VOICE_GENDER_UNSPECIFIED,
         'male': texttospeech.SsmlVoiceGender.MALE,
         'female': texttospeech.SsmlVoiceGender.FEMALE,
-        'neutral': texttospeech.SsmlVoiceGender.NEUTRAL
+        'neutral': texttospeech.SsmlVoiceGender.NEUTRAL,
+        'デフォルト': texttospeech.SsmlVoiceGender.SSML_VOICE_GENDER_UNSPECIFIED,
+        '男性': texttospeech.SsmlVoiceGender.MALE,
+        '女性': texttospeech.SsmlVoiceGender.FEMALE,
+        'ニュートラル': texttospeech.SsmlVoiceGender.NEUTRAL,
     }
     lang_code = {
         'English': 'en-US',
@@ -77,7 +81,7 @@ if page_lang == "日本語":
             comment.write('音声出力を開始します')
             response = synthesize_speech(input_data, lang=lang, gender=gender)
             st.audio(response.audio_content)
-            comment.write('完了しました')
+            comment.write('完了しました🎉🎉')
 else:
     st.title('Audio output App')
 
@@ -118,4 +122,4 @@ else:
             comment.write('Start audio output')
             response = synthesize_speech(input_data, lang=lang, gender=gender)
             st.audio(response.audio_content)
-            comment.write('Completed.')
+            comment.write('Completed🎉🎉')

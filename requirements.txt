@@ -1,3 +1,8 @@
-google-cloud-texttospeech
-streamlit
-python-dotenv
+google.cloud
+streamlit==1.27.2
+dotenv
+python-dotenv==0.21.0
+google-api-core==2.12.0
+google-auth==2.23.2
+google-cloud-texttospeech==2.14.2
+googleapis-common-protos==1.60.0

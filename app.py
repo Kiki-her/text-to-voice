@@ -4,7 +4,14 @@ from google.cloud import texttospeech
 import io
 import streamlit as st
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'secret.json'
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = dotenv_path
 
 def synthesize_speech(text, lang='日本語', gender='defalut'):
     gender_type = {

@@ -11,7 +11,7 @@ dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = dotenv_path
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = ".env"
 
 def synthesize_speech(text, lang='日本語', gender='defalut'):
     gender_type = {

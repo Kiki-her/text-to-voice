@@ -68,7 +68,7 @@ if page_lang == "日本語":
         )
         gender = st.selectbox(
             '話者の性別を選択してください',
-            ('default', 'male', 'female', 'neutral')
+            ('デフォルト', '男性', '女性', 'ニュートラル')
         )
         st.markdown('### 音声合成')
         st.write('こちらの文章で音声ファイルの生成を行いますか？')

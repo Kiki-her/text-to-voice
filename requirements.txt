@@ -71,13 +71,14 @@ decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
 defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
 diff-match-patch @ file:///Users/ktietz/demo/mc3/conda-bld/diff-match-patch_1630511840874/work
 dill @ file:///tmp/build/80754af9/dill_1623919422540/work
+distlib==0.3.7
 distributed @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_ca26b14a-a121-44b5-82b0-dbb6ccf35309a1h39fbg/croots/recipe/distributed_1658520748547/work
 docutils @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_10cfb287-0327-45ef-a38e-53dffd30cef1nwpvy20e/croots/recipe/docutils_1657175439973/work
 entrypoints @ file:///opt/concourse/worker/volumes/live/78b2c4ae-da17-4aa7-7fdc-138f840abf07/volume/entrypoints_1649926486598/work
 et-xmlfile==1.1.0
 exceptiongroup==1.1.0
 fastjsonschema @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_b5c1gee32t/croots/recipe/python-fastjsonschema_1661368622875/work
-filelock @ file:///opt/conda/conda-bld/filelock_1647002191454/work
+filelock==3.12.4
 flake8 @ file:///opt/conda/conda-bld/flake8_1648129545443/work
 Flask @ file:///home/ktietz/src/ci/flask_1611932660458/work
 fonttools==4.25.0
@@ -194,8 +195,9 @@ pep8==1.7.1
 pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
 pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
 Pillow==9.2.0
+pipenv==2023.10.3
 pkginfo @ file:///tmp/build/80754af9/pkginfo_1643162084911/work
-platformdirs @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_7fs8_2xgrm/croots/recipe/platformdirs_1662711383474/work
+platformdirs==3.11.0
 plotly @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_b7601a7c-071f-4424-ad46-f00f32c1766ccwgx0ywh/croots/recipe/plotly_1658160061089/work
 pluggy @ file:///opt/concourse/worker/volumes/live/42ef51ae-f79c-40e0-6d26-eb6fe9d8ba6e/volume/pluggy_1648042596777/work
 ply==3.11
@@ -327,6 +329,7 @@ ujson @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_cf44
 Unidecode @ file:///tmp/build/80754af9/unidecode_1614712377438/work
 urllib3 @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_53dwuk2xkk/croots/recipe/urllib3_1659110467968/work
 validators==0.22.0
+virtualenv==20.24.5
 w3lib @ file:///Users/ktietz/demo/mc3/conda-bld/w3lib_1629359764703/work
 watchdog @ file:///opt/concourse/worker/volumes/live/bc34f9ce-893b-443f-56fb-9256c33ecf2a/volume/watchdog_1638367303330/work
 wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work

@@ -14,7 +14,7 @@ def synthesize_speech(text, lang='日本語', gender='defalut'):
         'neutral': texttospeech.SsmlVoiceGender.NEUTRAL
     }
     lang_code = {
-        '英語': 'en-US',
+        'English': 'en-US',
         '日本語': 'ja-JP'
     }
 
@@ -35,43 +35,87 @@ def synthesize_speech(text, lang='日本語', gender='defalut'):
     )
     return response
 
-st.title('音声出力アプリ')
+page_lang = st.radio("Lang", ["日本語", "English"])
 
-st.markdown('### データ準備')
+if page_lang == "日本語":
+    st.title('音声出力アプリ')
 
-input_option = st.selectbox(
-    '入力データの選択',
-    ('直接入力', 'テキストファイル')
-)
-input_data = None
+    st.markdown('### データ準備')
 
-if input_option == '直接入力':
-    input_data = st.text_area('こちらにテキストを入力してください。', 'Cloud Speech-to-Text用のサンプル文になります。')
+    input_option = st.selectbox(
+        '入力データの選択',
+        ('直接入力', 'テキストファイル')
+    )
+    input_data = None
+
+    if input_option == '直接入力':
+        input_data = st.text_area('こちらにテキストを入力してください。', 'Cloud Speech-to-Text用のサンプル文になります。')
+    else:
+        uploaded_file = st.file_uploader('テキストファイルをアップロードしてください。', ['txt'])    
+        if uploaded_file is not None:
+            content = uploaded_file.read()
+            input_data = content.decode()
+
+    if input_data is not None:
+        st.write('入力データ')
+        st.write(input_data)
+        st.markdown('### パラメータ設定')
+        st.subheader('言語と話者の性別選択')
+
+        lang = st.selectbox(
+            '言語を選択してください',
+            ('日本語', 'English')
+        )
+        gender = st.selectbox(
+            '話者の性別を選択してください',
+            ('default', 'male', 'female', 'neutral')
+        )
+        st.markdown('### 音声合成')
+        st.write('こちらの文章で音声ファイルの生成を行いますか？')
+        if st.button('開始'):
+            comment = st.empty()
+            comment.write('音声出力を開始します')
+            response = synthesize_speech(input_data, lang=lang, gender=gender)
+            st.audio(response.audio_content)
+            comment.write('完了しました')
 else:
-    uploaded_file = st.file_uploader('テキストファイルをアップロードしてください。', ['txt'])    
-    if uploaded_file is not None:
-        content = uploaded_file.read()
-        input_data = content.decode()
+    st.title('Audio output App')
 
-if input_data is not None:
-    st.write('入力データ')
-    st.write(input_data)
-    st.markdown('### パラメータ設定')
-    st.subheader('言語と話者の性別選択')
+    st.markdown('### Data prep')
 
-    lang = st.selectbox(
-        '言語を選択してください',
-        ('日本語', '英語')
+    input_option = st.selectbox(
+        'Select of input data',
+        ('Direct input', 'Upload txt file')
     )
-    gender = st.selectbox(
-        '話者の性別を選択してください',
-        ('default', 'male', 'female', 'neutral')
-    )
-    st.markdown('### 音声合成')
-    st.write('こちらの文章で音声ファイルの生成を行いますか？')
-    if st.button('開始'):
-        comment = st.empty()
-        comment.write('音声出力を開始します')
-        response = synthesize_speech(input_data, lang=lang, gender=gender)
-        st.audio(response.audio_content)
-        comment.write('完了しました')
+    input_data = None
+
+    if input_option == 'Direct input':
+        input_data = st.text_area('Please enter your text here.', 'This is sample text for Cloud Speech-to-Text.')
+    else:
+        uploaded_file = st.file_uploader('Please upload txt file.', ['txt'])    
+        if uploaded_file is not None:
+            content = uploaded_file.read()
+            input_data = content.decode()
+
+    if input_data is not None:
+        st.write('Input data')
+        st.write(input_data)
+        st.markdown('### Parameter Setting')
+        st.subheader('Language and speaker gender selection')
+
+        lang = st.selectbox(
+            'Pleace select language',
+            ('English', '日本語')
+        )
+        gender = st.selectbox(
+            'Pleace select speaker gender',
+            ('default', 'male', 'female', 'neutral')
+        )
+        st.markdown('### Speech synthesis')
+        st.write('Would you like to generate an audio file with this text?')
+        if st.button('Start'):
+            comment = st.empty()
+            comment.write('Start audio output')
+            response = synthesize_speech(input_data, lang=lang, gender=gender)
+            st.audio(response.audio_content)
+            comment.write('Completed.')
